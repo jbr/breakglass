@@ -8,6 +8,8 @@ class Family < ActiveRecord::Base
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   
   validates_presence_of :name
+	
+	has_many :people
   
   def encrypt_password
     self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--") if new_record?
