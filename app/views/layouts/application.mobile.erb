@@ -1,0 +1,23 @@
+<%= mobile_xhtml_doctype %>
+
+<html>
+  <head>
+    <title>Break Glass</title>
+    <%= stylesheet_link_tag 'breakglass', :media => 'all' %>
+    <%= stylesheet_link_tag 'breakglass_mobile', :media => 'all' %>
+  </head>
+  <body>
+    <% if flash[:notice] -%><div class="flash notice"><%= flash[:notice] %></div><% end -%>
+    <% if flash[:error] -%><div class="flash error"><%= flash[:error] %></div><% end -%>
+
+    <div class="header">
+      <% if logged_in? -%>
+        <div>
+          Logged in as <%=current_person.name%> |
+          <%= link_to "log out", session_url, :method => :delete -%>
+        </div>
+      <% end -%>
+    </div>
+    <%= yield %>
+  </body>
+</html>
