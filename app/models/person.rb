@@ -4,6 +4,7 @@ class Person < ActiveRecord::Base
   has_many :messages
 
   validates_presence_of :family
+	validates_presence_of :phone
 	
   phone_like_fields :sms, :phone
   
