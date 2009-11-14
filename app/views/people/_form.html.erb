@@ -1,6 +1,5 @@
 <% person ||= Person.new %>
 <% remote_form_for :person, person, :url => family_people_url(current_family), :method => :post, :html => {:id => 'new-person'} do |f| -%>
-  <div>
   <%= f.error_messages %>
   <div class="field name">
     <%=f.label :name %>
@@ -19,5 +18,4 @@
     <%= f.text_field :email -%>
   </div>
   <div class="field submit"><%= f.submit 'Add' -%></div>
-  </div>
 <% end -%>
