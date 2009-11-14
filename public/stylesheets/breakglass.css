@@ -43,3 +43,16 @@ fieldset {
 #family-members .person .name {
   font-weight: bold;
 }
+
+.meeting-place {
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 5px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+.meeting-place textarea {
+  height: 100px;
+  width: 100%;
+}

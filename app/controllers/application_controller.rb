@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def current_person=(person)
     session[:person_id] = person.try :id
   end
-
+  
   def logged_in?
     !!current_person
   end

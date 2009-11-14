@@ -1,2 +1,7 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function(){
+  $('.meeting-place').click(function(){
+    if($(this).find('.static').is(':visible')) {
+      $(this).find('.static, .meeting-place-form').toggle('blind')
+    }
+  })
+})

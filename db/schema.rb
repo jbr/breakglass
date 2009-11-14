@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091114094141) do
+ActiveRecord::Schema.define(:version => 20091114194247) do
 
   create_table "families", :force => true do |t|
     t.string   "crypted_password"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20091114094141) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone",      :limit => 10
   end
 
   create_table "messages", :force => true do |t|

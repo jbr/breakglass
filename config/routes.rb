@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :families do |family|
     family.resources :people
   end
-  map.resource :meeting_places
+  map.resources :meeting_places
   map.resource :messages
   map.resource :twilio
   

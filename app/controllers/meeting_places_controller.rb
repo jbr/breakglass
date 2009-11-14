@@ -1,25 +1,10 @@
 class MeetingPlacesController < ApplicationController
   before_filter :login_required
-
-  def index
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
   def update
+    @mp = MeetingPlace.find(params[:id])
+    @mp.update_attributes params[:meeting_place]
+    respond_to do |format|
+      format.js
+    end
   end
-
-  def destroy
-  end
-
 end
