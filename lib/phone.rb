@@ -11,7 +11,7 @@ class Phone
       
       define_method :"formatted_#{field_name}" do
         raw = send field_name
-        unless raw.nil?
+        unless raw.blank?
           "(#{raw[0..2]}) #{raw[3..5]}-#{raw[6..9]}"
         else
           ""
