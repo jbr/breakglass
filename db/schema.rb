@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091114050603) do
+ActiveRecord::Schema.define(:version => 20091114054705) do
+
+  create_table "families", :force => true do |t|
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
 
   create_table "meeting_places", :force => true do |t|
     t.integer  "family_id"

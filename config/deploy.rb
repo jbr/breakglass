@@ -1,5 +1,5 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "breakglass"
+set :repository,  "git://github.com/jbr/breakglass.git"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
