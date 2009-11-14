@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def new
-    flash[:notice] = "Normally I would redirect to somewhere else if there were other controllers"
+    if logged_in?
+      flash[:notice] = "Normally I would redirect to somewhere else if there were other controllers"
+    end
   end
 
   def create
