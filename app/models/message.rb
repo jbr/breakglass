@@ -11,8 +11,8 @@ class Message < ActiveRecord::Base
     @sms = Clickatell::API.authenticate('3205392', 'breakglass', 'rhok2009')
     Twilio.connect('AC22b634ba0e4e36e926222a3ae89a72ea', '82b27d73fa88a8dd599a12172e8c0bd3')
     
-    #TODO: Need to make this a full URL instead of a relative one
-    @twilio_cb_url = "http://breakglass.emicus.com/twilio?message=#{text}" 
+		@caller_id = "2063358014"
+    @twilio_cb_url = "http://breakglass.emicus.com/twilio?msg=#{text}" 
   end
 
 	def broadcast
