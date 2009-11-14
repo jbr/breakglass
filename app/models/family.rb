@@ -7,13 +7,12 @@ class Family < ActiveRecord::Base
   validates_presence_of     :password,                   :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   
+  validates_presence_of :name
+  
   def encrypt_password
     self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--") if new_record?
     self.crypted_password = encrypt password.downcase
   end
-  
-  def self.encrypt(password, salt)
-  end  
   
   def encrypt(password)
     Digest::SHA1.hexdigest("--#{salt}--#{password.downcase}--")
