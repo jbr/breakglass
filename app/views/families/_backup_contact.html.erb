@@ -1,0 +1,18 @@
+<% form_for @family do |f| %>
+	<div id="external-contact-name">
+	<% field_set_tag "Contact Name/Phone" do %>
+		<%= f.text_field :external_contact_name, :size => 16,
+				:value => "Aunt Ida",
+				:onFocus => "if(this.value==this.defaultValue) this.value='';",
+				:onBlur => "if(this.value=='') this.value=this.defaultValue;" %>
+		<%= f.text_field :external_contact_phone, :size => 16,
+				:value => "206-555-1234",
+				:onFocus => "if(this.value==this.defaultValue) this.value='';",
+				:onBlur => "if(this.value=='') this.value=this.defaultValue;" %>
+	<% end %>
+	</div>
+
+	<%= f.submit %>
+
+	<div class="clear"></div>
+<% end %>
