@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   cattr_accessor :current_person
   helper_method :logged_in?, :current_person
 
+  has_mobile_fu
+
   filter_parameter_logging :password, :password_confirmation
   
   def current_person

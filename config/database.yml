@@ -2,9 +2,9 @@ development:
   adapter: mysql
   database: breakglass_development
   pool: 5
-  username: m
+  username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
+  host: 127.0.0.1
 
 test:
   adapter: mysql
