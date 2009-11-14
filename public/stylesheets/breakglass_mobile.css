@@ -40,10 +40,9 @@ h2 {
   font-weight: bold;
 }
 
-.meeting_place {
+.info_block {
   width: 100%
   height: auto;
-  background-color: #99CCFF; 
   margin-top: 4px;
   font-size: 123.1%;
   padding: 4px;
@@ -52,6 +51,14 @@ h2 {
   border-radius: 3px;
 }
 
-.meeting_place_name {
+#meeting_place.info_block {
+  background-color: #CCFF99; 
+}
+
+#out_of_town_contact.info_block {
+  background-color: #FF9999; 
+}
+
+.info_block_name {
   font-weight: bold;
 }
