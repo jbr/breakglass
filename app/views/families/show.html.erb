@@ -27,4 +27,8 @@
 <div class="box" id="send-message">
 	Have an emergency? The message you type here will be broadcast to your
 	contacts immediately.
+        <% form_for :message, @message, :url => { :controller => "messages", :action => "create" } do |f| %>
+          <%= f.text_field :text %>
+          <%= submit_tag 'Create' %>
+        <% end %>
 </div>

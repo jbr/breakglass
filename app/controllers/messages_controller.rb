@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
-  def new
-		@message = Message.new(params)
+  def create
+    @message = Message.new(:text => params[:message][:text], :person_id => session[:person_id] )
+    render :text => nil
   end
 
 end
