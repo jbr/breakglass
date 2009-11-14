@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
-  helper_method :logged_in?, :current_person
+  helper_method :logged_in?, :current_person, :current_family
 
   has_mobile_fu
 
   filter_parameter_logging :password, :password_confirmation
+  
+  def current_family
+    current_person && current_person.family
+  end
   
   def current_person
     @current_person ||= current_person_from_session

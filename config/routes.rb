@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :session
-  map.resources :families
+  map.resources :families do |family|
+    family.resources :people
+  end
   map.resource :meeting_places
   map.resource :messages
   map.resource :twilio
-  map.root :controller => 'sessions', :action => 'new'
+  map.root :controller => 'families', :action => 'index'
 end
