@@ -3,6 +3,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :families
   map.resource :meeting_places
   map.resource :messages
-  map.resource :twilio, :plural => 'twilio'
+  map.resource :twilio
   map.root :controller => 'sessions', :action => 'new'
 end
