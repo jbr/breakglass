@@ -2,9 +2,7 @@ class SessionsController < ApplicationController
   before_filter :login_required, :only => :destroy
   
   def new
-    if logged_in?
-      redirect_to current_person.family
-    end
+		redirect_to '/' if logged_in?
   end
 
   def create

@@ -1,0 +1,7 @@
+<% if @success %>
+  $(<%=render(:partial => 'people/person', :locals => {:person => @person}).to_json-%>).appendTo('#family-members #people').show('blind')
+<% end %>
+
+$('form#new-person').replaceWith(
+  <%=render(:partial => "people/form", :locals => {:person => @success ? Person.new : @person}).to_json-%>
+);

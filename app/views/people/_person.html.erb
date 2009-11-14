@@ -1,0 +1,6 @@
+<div class="person">
+  <div class="name"><%=person.name -%></div>
+  <div class="phone"><%=person.formatted_phone -%></div>
+  <% unless person.sms.blank? %><div class="sms"><%=person.formatted_sms -%></div><% end %>
+  <% unless person.email.blank? %><div class="email"><%=person.email -%></div><% end %>
+</div>
