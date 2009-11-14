@@ -1,1 +1,30 @@
-HTML
+<div class="box" id="family-members">
+	Please enter your family members' contact information here. During an
+	emergency you will be able to send them messages (and they to you) based on
+	the information you provide.
+</div>
+
+<div class="box" id="meeting-places">
+	List the places you have agreed to meet in the event of an emergency. These
+	should be in order so if you're unable to get to the first place, you all
+	agree on the second place.
+</div>
+
+<div class="box" id="social-networks">
+	If you'd like us to set your status on your social networks when you send a
+	broadcast, please enter that information here.
+</div>
+
+<div class="box" id="backup-contact">
+	In case you can't physically meet, you should have a contact person outside
+	the potential disaster area to help you coordinate communication. List that
+	person here so you have their information handy.
+	<div class="form" id="backup-contact-form">
+		<%= render :partial => "backup_contact" %>
+	</div>
+</div>
+
+<div class="box" id="send-message">
+	Have an emergency? The message you type here will be broadcast to your
+	contacts immediately.
+</div>

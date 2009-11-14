@@ -1,0 +1,33 @@
+body {
+	line-height: 1.3em;
+}
+
+.box {
+	width: 380px;
+	padding: 1em;
+	margin: 1em;
+	border: 1px solid black;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.form {
+}
+
+fieldset {
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+#external-contact-name {
+	float: left;
+}
+#external-contact-phone {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
