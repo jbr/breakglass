@@ -13,13 +13,14 @@ class ApplicationController < ActionController::Base
   def current_person=(person)
     session[:person_id] = person.try :id
   end
+
+  def logged_in?
+    !!current_person
+  end
   
+  private
   def current_person_from_session
     return unless session[:person_id]
     Person.find_by_id session[:person_id]
-  end
-  
-  def logged_in?
-    !!current_person
   end
 end
