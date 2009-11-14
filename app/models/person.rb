@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
 	validates_presence_of :family
 	
 	def self.strip_nonnumeric(phone)
-	  phone.gsub(/[^0-9]/, '')
+	  phone.gsub /[^0-9]/, ''
   end
   
   def phone=(phone)
@@ -16,6 +16,10 @@ class Person < ActiveRecord::Base
 	
 	def self.authenticate(phone, password)
 	  person = find_by_phone strip_nonnumeric(phone)
-	  person.family.authenticated?(password) ? person : nil
+	  if person && person.family.authenticated?(password)
+	    person
+    else
+      nil
+    end
   end
 end

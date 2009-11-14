@@ -10,8 +10,13 @@ class PersonTest < ActiveSupport::TestCase
         assert_equal @expected_person, found
       end
       
-      should 'not authenticate with the incorrect password' do
+      should 'not authenticate with an existing person but the incorrect password' do
         assert_nil Person.authenticate(@expected_person.phone, 'not my pass')
+      end
+      
+      should 'not authenticate with a nonexistent person' do
+        assert_nil Person.find_by_phone("hello")
+        assert_nil Person.authenticate("hello", "doesn't matter")
       end
     end
   end
