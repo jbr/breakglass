@@ -1,9 +1,4 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  crypted_password: MyString
-  salt: MyString
-
-two:
+ferroni:
+  name: Ferroni
   crypted_password: MyString
   salt: MyString

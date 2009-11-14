@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
-  cattr_accessor :current_person
   helper_method :logged_in?, :current_person
 
   has_mobile_fu

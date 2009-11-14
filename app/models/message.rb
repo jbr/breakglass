@@ -8,7 +8,8 @@ class Message < ActiveRecord::Base
 	private
 
 	def broadcast
-		# TODO: fill this in
+		# TODO: async creation of twilio/clickatel notifications here the recipient
+		# list will be self.person.family.people
 	end
 
 end
