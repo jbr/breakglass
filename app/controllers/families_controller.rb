@@ -1,4 +1,5 @@
 class FamiliesController < ApplicationController
+	before_filter :login_required
 	
   def show
     @family = Family.find(params[:id])

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :login_required, :only => :destroy
+  
   def new
     if logged_in?
 			redirect_to :controller => :families, :action => :show, :id => current_person.family_id
