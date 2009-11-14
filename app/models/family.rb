@@ -1,4 +1,7 @@
 class Family < ActiveRecord::Base
+
+	require 'digest/sha1'
+
   attr_accessor :password
   validates_confirmation_of :password
   validates_presence_of :password, :if => :password_required?

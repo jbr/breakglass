@@ -10,6 +10,6 @@ set :repository,  "git://github.com/jbr/breakglass.git"
 # your SCM below:
 # set :scm, :subversion
 
-role :app, "your app-server here"
-role :web, "your web-server here"
-role :db,  "your db-server here", :primary => true
+role :app, "breakglass.emicus.com"
+role :web, "breakglass.emicus.com"
+role :db,  "breakglass.emicus.com", :primary => true
