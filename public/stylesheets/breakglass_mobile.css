@@ -1,0 +1,57 @@
+body {
+        font:13px/1.231 helvetica,arial,clean,sans-serif;
+        /* for IE6/7 */
+        *font-size:small;
+        /* for IE Quirks Mode */
+        *font:x-small;
+}
+
+h1 {
+  font-size: 138.5%;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 123.1%;
+}
+
+.clear {
+  clear: both;
+}
+
+.mobile_header {
+  border: solid 2px;
+  width: 100%;
+  height: 56px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.header_logo {
+  padding: 4px;
+  float: left;
+}
+
+.header_text {
+  padding-top: 16px;
+  padding-left: 64px;
+  font-size: 153.9%;
+  font-weight: bold;
+}
+
+.meeting_place {
+  width: 100%
+  height: auto;
+  background-color: #99CCFF; 
+  margin-top: 4px;
+  font-size: 123.1%;
+  padding: 4px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.meeting_place_name {
+  font-weight: bold;
+}
