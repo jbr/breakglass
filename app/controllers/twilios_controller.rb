@@ -1,4 +1,6 @@
 class TwiliosController < ApplicationController
+
+	skip_before_filter :validate_authenticity_token, :only => :create
   before_filter :login_required
   
   def show
