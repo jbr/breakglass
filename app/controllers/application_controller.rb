@@ -19,6 +19,17 @@ class ApplicationController < ActionController::Base
     !!current_person
   end
   
+  def login_required
+    unless logged_in?
+      flash[:notice] = "Access denied, please log in."
+      access_denied
+    end
+  end
+  
+  def access_denied
+    redirect_to new_session_url and return false
+  end
+  
   private
   def current_person_from_session
     return unless session[:person_id]
