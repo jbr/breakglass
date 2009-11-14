@@ -12,4 +12,9 @@ class Person < ActiveRecord::Base
   def phone=(phone)
     self[:phone] = Person.strip_nonnumeric phone
   end
+	
+	def self.authenticate(phone, password)
+	  person = find_by_phone strip_nonnumeric(phone)
+	  person.family.authenticated?(password) ? person : nil
+  end
 end
