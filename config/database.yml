@@ -1,9 +1,10 @@
 development:
   adapter: mysql
   database: breakglass_development
-  username: root
-  password: password
-  socket: /tmp/mysql.sock
+  pool: 5
+  username: m
+  password:
+  socket: /var/run/mysqld/mysqld.sock
 
 test:
   adapter: mysql

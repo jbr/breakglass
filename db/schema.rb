@@ -19,4 +19,30 @@ ActiveRecord::Schema.define(:version => 20091114054705) do
     t.string   "name"
   end
 
+  create_table "meeting_places", :force => true do |t|
+    t.integer  "family_id"
+    t.integer  "position"
+    t.string   "name",       :limit => 64
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", :force => true do |t|
+    t.integer  "family_id"
+    t.string   "name",       :limit => 64
+    t.string   "phone",      :limit => 32
+    t.string   "sms",        :limit => 32
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end

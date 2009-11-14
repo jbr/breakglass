@@ -3,3 +3,4 @@ tmp/**/*
 doc/api
 doc/app
 public/stylesheets/compiled/*
+config/database.yml
