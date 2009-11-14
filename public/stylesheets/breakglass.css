@@ -52,24 +52,6 @@ fieldset {
   font-weight:bold;
 }
 
-#message_text {
-  font-size:150%;
-  width:100%;
-  color:red;
-  border:1px solid black;
-}
-
-#message_submit {
-  width: 75%;
-  height: 35px;
-  margin: 5px;
-  border:1px solid red;
-  background: #EEE;
-  color:red;
-  margin:auto;
-  display:block;
-}
-
 .meeting-place .static {
   padding: 10px 0;
 }
