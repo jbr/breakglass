@@ -12,7 +12,7 @@ class Message < ActiveRecord::Base
     Twilio.connect('AC22b634ba0e4e36e926222a3ae89a72ea', '82b27d73fa88a8dd599a12172e8c0bd3')
     
 		@caller_id = "2063358014"
-    @twilio_cb_url = "http://breakglass.emicus.com/twilio?msg=#{text}" 
+    @twilio_cb_url = "http://breakglass.emicus.com/twilio?msg=#{CGI.escape(text)}" 
   end
 
 	def broadcast
