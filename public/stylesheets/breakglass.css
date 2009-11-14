@@ -22,6 +22,7 @@ fieldset {
 }
 
 #external-contact-name {
+  background-color: #FF9999;
 	float: left;
 }
 #external-contact-phone {
@@ -33,6 +34,7 @@ fieldset {
   border: 1px solid black;
   margin: 10px 0;
   padding: 5px;
+  background-color: #eee;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
@@ -44,6 +46,7 @@ fieldset {
   border: 1px solid black;
   margin: 10px 0;
   padding: 5px;
+  background-color: #CCFF99;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
@@ -51,4 +54,11 @@ fieldset {
 .meeting-place textarea {
   height: 100px;
   width: 100%;
+}
+
+.meeting-place-name {
+  font-weight: bold;
+}
+
+#external-content-name {
 }
