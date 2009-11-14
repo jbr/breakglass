@@ -28,9 +28,6 @@ fieldset {
 	float: right;
 }
 
-.clear {
-	clear: both;
-}
 
 #family-members .person {
   border: 1px solid black;
@@ -39,7 +36,6 @@ fieldset {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
-
 #family-members .person .name {
   font-weight: bold;
 }
