@@ -1,15 +1,13 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  family_id: 1
+cameron:
+  family: ferroni
   name: MyString
-  phone: MyString
+  phone: 1234567890
   sms: MyString
   email: MyString
 
-two:
-  family_id: 1
+lara:
+  family: ferroni
   name: MyString
-  phone: MyString
+  phone: 0987654321
   sms: MyString
   email: MyString
