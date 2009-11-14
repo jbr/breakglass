@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     if logged_in?
-      flash[:notice] = "Normally I would redirect to somewhere else if there were other controllers"
+			redirect_to :controller => :families, :action => :show, :id => current_person.family_id
     end
   end
 

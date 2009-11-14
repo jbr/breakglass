@@ -13,6 +13,7 @@ class Family < ActiveRecord::Base
   validates_presence_of :name
 	
 	has_many :people
+	has_many :meeting_places
   
   def encrypt_password
     self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--") if new_record?
