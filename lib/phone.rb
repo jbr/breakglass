@@ -11,7 +11,11 @@ class Phone
       
       define_method :"formatted_#{field_name}" do
         raw = send field_name
-        "(#{raw[0..2]}) #{raw[3..5]}-#{raw[6..9]}"
+        unless raw.nil?
+          "(#{raw[0..2]}) #{raw[3..5]}-#{raw[6..9]}"
+        else
+          ""
+        end
       end
       
       validates_format_of field_name, :with => /[0-9]{10}/
