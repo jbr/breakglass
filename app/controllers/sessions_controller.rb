@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   
   def new
     if logged_in?
-			redirect_to :controller => :families, :action => :show, :id => current_person.family_id
+			redirect_to current_person.family
     end
   end
 
