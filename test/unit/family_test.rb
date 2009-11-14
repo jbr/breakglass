@@ -7,17 +7,22 @@ class FamilyTest < ActiveSupport::TestCase
     should 'not be valid' do
       assert_not_valid @family
       assert_not_nil @family.errors.on(:password)
+      assert_not_nil @family.errors.on(:name)
     end
-
-    context 'with a password' do
+    
+    context 'with a valid unsaved record' do
       setup do
-        @family.attributes = { :password => "PASS", :password_confirmation => "PASS" }
+        @family.attributes = {
+          :password => "PASS",
+          :password_confirmation => "PASS",
+          :name => "Smith"
+        }
       end
       
       should 'be valid' do
         assert_valid @family
       end
-      
+
       context 'after save' do
         setup { @family.save! }
         
