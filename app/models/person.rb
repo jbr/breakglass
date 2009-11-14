@@ -1,18 +1,19 @@
 class Person < ActiveRecord::Base
   extend Phone::Methods
-	belongs_to :family
-	has_many :messages
+  belongs_to :family
+  has_many :messages
 
-	validates_presence_of :family
+  validates_presence_of :family
 	
-	phone_like_fields :sms, :phone
+  phone_like_fields :sms, :phone
   
-	def self.authenticate(phone, password)
-	  person = find_by_phone strip_nonnumeric(phone)
-	  if person && person.family.authenticated?(password)
-	    person
+  def self.authenticate(phone, password)
+    person = find_by_phone strip_nonnumeric(phone)
+    if person && person.family.authenticated?(password)
+      person
     else
       nil
     end
   end
+
 end

@@ -1,6 +1,8 @@
 class MeetingPlace < ActiveRecord::Base
-	acts_as_list
+  extend Phone::Methods
+  acts_as_list :scope => :family
+  phone_like_field :phone
 
-	def new
-	end
+  def new
+  end
 end

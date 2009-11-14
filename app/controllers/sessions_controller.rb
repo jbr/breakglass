@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   
   def new
     if logged_in?
-			redirect_to current_person.family
+      redirect_to current_person.family
     end
   end
 
