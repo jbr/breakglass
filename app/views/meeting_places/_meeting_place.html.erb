@@ -1,0 +1,9 @@
+<div class="meeting-place">
+  <div class="name"><%=meeting_place.name%></div>
+  <div class="text"><%=meeting_place.text%></div>
+  <div class="phone"><%=meeting_place.formatted_phone%></div>
+  <% remote_form_for meeting_place, :url => meeting_places_url(meeting_place) do |f| %>
+    <%= f.text_area 'text' %>
+    <%= f.text_field 'phone', :text => meeting_place.formatted_phone %>
+  <% end %>
+</div>
