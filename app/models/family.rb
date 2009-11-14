@@ -34,7 +34,6 @@ class Family < ActiveRecord::Base
   end
 
   def create_meeting_places
-    logger.debug ("Here")
     meeting_place_names = ['Neighborhood Meeting Place', 'Regional Meeting Place', 'Evacuation Location']
     meeting_place_names.each do |mp_name|
       mp = self.meeting_places.new(:name => mp_name)

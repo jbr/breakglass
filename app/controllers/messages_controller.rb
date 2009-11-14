@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(:text => params[:message][:text], :person_id => session[:person_id] )
     @message.save
-    render :text => nil
+    redirect_to current_person.family
   end
 
 end
