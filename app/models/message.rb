@@ -35,7 +35,8 @@ class Message < ActiveRecord::Base
 
   def send_sms(cell)
     puts "Sending sms: #{text} to: #{cell}"
-    @sms.send_message(cell, text)
+		# This is stupid, don't prepend the 1:
+    @sms.send_message("1#{cell}", text)
   end
 
   def voice_call(phone)
