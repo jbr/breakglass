@@ -4,3 +4,4 @@ doc/api
 doc/app
 public/stylesheets/compiled/*
 config/database.yml
+db/*.sqlite3
