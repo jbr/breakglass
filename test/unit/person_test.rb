@@ -41,13 +41,21 @@ class PersonTest < ActiveSupport::TestCase
     context 'with valid attributes' do
       setup do
         @person.attributes = {
-          :phone => '(123) 456-7890',
+          :phone => '(000) 456-7890',
           :family => Family.new
         }
       end
       
       should 'be valid' do
         assert_valid @person
+      end
+      
+      context 'with a duplicate phone' do
+        setup {@person.phone = people(:cameron).phone}
+        should 'not be valid' do
+          assert_not_valid @person
+          assert_not_nil @person.errors.on(:phone)
+        end
       end
     end
   end

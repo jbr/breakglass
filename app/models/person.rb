@@ -2,6 +2,7 @@ class Person < ActiveRecord::Base
 	belongs_to :family
 	has_many :messages
 	validates_format_of :phone, :with => /[0-9]{10}/
+  validates_uniqueness_of :phone
 
 	validates_presence_of :family
 	
