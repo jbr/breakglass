@@ -9,8 +9,8 @@ class Phone
         self[field_name.to_s] = self.class.strip_nonnumeric content
       end
       
-      validates_format_of :phone, :with => /[0-9]{10}/
-      validates_uniqueness_of :phone
+      validates_format_of field_name, :with => /[0-9]{10}/
+      validates_uniqueness_of field_name
     end
     
     def phone_like_fields(*field_names)
