@@ -31,3 +31,15 @@ fieldset {
 .clear {
 	clear: both;
 }
+
+#family-members .person {
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 5px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+#family-members .person .name {
+  font-weight: bold;
+}
