@@ -9,6 +9,11 @@ class Phone
         self[field_name.to_s] = self.class.strip_nonnumeric content
       end
       
+      define_method :"formatted_#{field_name}" do
+        raw = send field_name
+        "(#{raw[0..2]}) #{raw[3..5]}-#{raw[6..9]}"
+      end
+      
       validates_format_of field_name, :with => /[0-9]{10}/
       validates_uniqueness_of field_name
     end
