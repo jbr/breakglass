@@ -62,3 +62,17 @@ h2 {
 .info_block_name {
   font-weight: bold;
 }
+
+.submit_block {
+  margin-top: 4px;
+}
+
+input#message_text {
+  font-size: 123.1%;
+  padding: 2px;
+}
+
+input#submit_button {
+  font-size: 123.1%;
+  padding: 2px;
+}
