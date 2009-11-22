@@ -1,7 +1,7 @@
 class Phone
   module Methods
     def strip_nonnumeric(phone)
-  	  phone.gsub /[^0-9]/, ''
+      (phone || '').gsub /[^0-9]/, ''
     end
   	
     def phone_like_field(field_name)

@@ -25,4 +25,22 @@ class SessionsControllerTest < ActionController::TestCase
       end
     end
   end
+  
+  context 'create (log in)' do
+    context 'with a valid person phone and family password' do
+      setup do
+        @person = people :cameron
+        @person.family.update_attributes! :password => 'pass', :password_confirmation => 'pass'
+        get :create, :session => { :phone => @person.phone, :password => 'pass' }
+      end
+      
+      should 'set the current_person' do
+        assert_current_person @person, controller
+      end
+      
+      should 'redirect to root_url' do
+        assert_redirected_to root_url
+      end
+    end
+  end
 end

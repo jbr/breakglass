@@ -15,7 +15,8 @@ end
 
 
 class ActionController::TestCase
-  attr_reader :request, :response
+  attr_reader :request, :response, :controller
+  
   def log_in_as(person)
     request.session[:person_id] = person.id
   end
