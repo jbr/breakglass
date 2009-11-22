@@ -1,4 +1,9 @@
 ferroni:
   name: Ferroni
+  salt: pass
   crypted_password: MyString
-  salt: MyString
+
+rothstein:
+  name: Rothstein
+  salt: pass
+  crypted_password: <%=Digest::SHA1.hexdigest("--pass--pass--")%>
