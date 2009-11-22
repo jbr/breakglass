@@ -4,7 +4,7 @@ class ManifestsController < ApplicationController
     if logged_in?
       render :content_type => 'text/cache-manifest'
     else
-      render :status => 404, :nothing => true
+      head 404
     end
   end
 end

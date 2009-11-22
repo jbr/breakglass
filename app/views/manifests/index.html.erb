@@ -2,10 +2,12 @@ CACHE MANIFEST
 <%=root_url%>
 #<%=Time.now%>
 CACHE:
-<%=root_url%>stylesheets/breakglass.css
-<%=root_url%>stylesheets/breakglass_mobile.css
-<%=root_url%>javascripts/jquery.js
-<%=root_url%>javascripts/jquery-ui.js
-<%=root_url%>javascripts/jrails.js
-<%=root_url%>javascripts/application.js
-<%=root_url%>images/favicon.jpg
+<% for stylesheet in %w(breakglass breakglass_mobile) -%>
+  <%=root_url%>stylesheets/<%=stylesheet%>.css
+<% end -%>
+<% for javascript in %w(jquery jquery-ui jrails application) -%>
+  <%=root_url%>javascripts/<%=javascript%>.js
+<% end -%>
+<% for image in %w(favicon) -%>
+  <%=root_url%>images/<%=image%>.jpg
+<% end -%>
