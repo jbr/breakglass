@@ -1,5 +1,6 @@
 class FamiliesController < ApplicationController
 	before_filter :login_required
+	load_resource :family, :except => :index
 	
 	def index
 	  @family = current_family
@@ -7,7 +8,6 @@ class FamiliesController < ApplicationController
   end
 	
   def show
-    @family = Family.find params[:id]
     respond_to do |format|
       format.html
       format.mobile
@@ -15,7 +15,6 @@ class FamiliesController < ApplicationController
   end
 
 	def update
-		@family = Family.find(params[:id])
 		respond_to do |format|
 			if @family.update_attributes(params[:family])
 				format.html { redirect_to(@family) }
@@ -28,5 +27,4 @@ class FamiliesController < ApplicationController
 			end
 		end
 	end
-
 end
