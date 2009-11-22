@@ -27,10 +27,13 @@ class SessionsControllerTest < ActionController::TestCase
   end
   
   context 'create (log in)' do
+    setup do
+      @person = people :cameron
+      @person.family.update_attributes! :password => 'pass', :password_confirmation => 'pass'
+    end
+    
     context 'with a valid person phone and family password' do
       setup do
-        @person = people :cameron
-        @person.family.update_attributes! :password => 'pass', :password_confirmation => 'pass'
         get :create, :session => { :phone => @person.phone, :password => 'pass' }
       end
       
@@ -40,6 +43,20 @@ class SessionsControllerTest < ActionController::TestCase
       
       should 'redirect to root_url' do
         assert_redirected_to root_url
+      end
+    end
+    
+    context 'without a valid person phone and family password pair' do
+      setup do
+        get :create, :session => { :phone => @person.phone, :password => 'something else' }
+      end
+      
+      should 'not set the current_person' do
+        assert_current_person nil, controller
+      end
+      
+      should 'render the log in form' do
+        assert_css "form[action='#{session_url}']"
       end
     end
   end
