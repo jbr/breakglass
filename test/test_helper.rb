@@ -3,6 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 require 'test_rig'
 require 'shoulda'
+require 'nokogiri'
 
 class ActiveSupport::TestCase
   include TestRig
@@ -21,5 +22,13 @@ class ActionController::TestCase
   
   def log_out
     request.session[:person_id] = nil
+  end
+  
+  def response_body
+    Nokogiri::HTML response.body
+  end
+  
+  def assert_css(css, count = 1)
+    assert_size count, response_body.css(css)
   end
 end
