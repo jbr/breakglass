@@ -18,7 +18,9 @@ class ActionController::TestCase
   attr_reader :request, :response, :controller
   
   def log_in_as(person)
+    person = people(person) if person.is_a? Symbol
     request.session[:person_id] = person.id
+    person
   end
   
   def log_out

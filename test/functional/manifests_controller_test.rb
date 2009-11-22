@@ -9,7 +9,7 @@ class ManifestsControllerTest < ActionController::TestCase
     
     context 'when logged in' do
       setup do
-        log_in_as people(:cameron)
+        log_in_as :cameron
         get :index
       end
       

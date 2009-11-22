@@ -4,7 +4,7 @@ class SessionsControllerTest < ActionController::TestCase
   context 'new' do
     context 'when logged in' do
       setup do
-        log_in_as people(:cameron)
+        log_in_as :cameron
         get :new
       end
 
