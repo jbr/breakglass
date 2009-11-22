@@ -1,0 +1,3 @@
+-remote_form_for <%=file_name.singularize%>, :url => <%=file_name.pluralize%>_url, :method => :post, :html => {:class => 'remote-<%=file_name.singularize%>-form'} do |f|
+  =render :partial => '<%=file_name.pluralize%>/form', :locals => {:f => f}
+  =f.submit 'Create'

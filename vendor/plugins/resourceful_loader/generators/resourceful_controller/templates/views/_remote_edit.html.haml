@@ -1,0 +1,3 @@
+-remote_form_for <%=class_name%>.new, :url => <%=file_name.singularize%>_url(<%=file_name.singularize%>), :method => :put, :html => {:class => 'remote-<%=file_name.singularize%>-form'} do |f|
+  =render :partial => '<%=file_name.pluralize%>/form', :locals => {:f => f}
+  =f.submit 'Update'

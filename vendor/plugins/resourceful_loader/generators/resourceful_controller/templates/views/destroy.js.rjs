@@ -1,0 +1,3 @@
+page <<<<-END_JS
+  $('##{@<%=file_name.singularize%>.element_id}').hide('blind', function(){$(this).remove()})
+END_JS

@@ -1,0 +1,5 @@
+page <<<<-END_JS
+  $('##{@<%=file_name.singularize%>.element_id}')
+    .replaceWith(#{render_object_partial @<%=file_name.singularize%>, :to => :json})
+  $('##{@<%=file_name.singularize%>.element_id}').highlight();
+END_JS

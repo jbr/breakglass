@@ -1,0 +1,3 @@
+= render :partial => '<%=file_name%>/<%=file_name.singularize%>', :locals => {:<%=file_name.singularize%> => @<%=file_name.singularize%>}
+= link_to "&larr; All <%=file_name.titlecase%>", <%=file_name%>_url
+= link_to "&uarr; Edit", edit_<%=file_name.singularize%>_url(@<%=file_name.singularize%>)

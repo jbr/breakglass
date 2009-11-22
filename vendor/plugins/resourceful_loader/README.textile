@@ -1,0 +1,137 @@
+h1. Resourceful Loader
+
+h2. DRY up your RESTful Controllers
+
+Yep, this is *yet* another resource-oriented rails plugin.  It's similar to many of the others, only this one is mine.
+
+h2. Usage
+
+The primary macro that *ResourcefulLoader* provides is @#load_resource@, which replaces this pattern:
+
+<pre><code>
+  class WidgetsController < ApplicationController
+    before_filter :load_parent_resource
+    before_filter :load_widget, :only => [:show, :destroy, :edit]
+    
+    #...
+    # use @parent_resource and @widget in here
+    #...
+    
+    private
+    
+    def load_parent_resource
+      @parent_resource = ParentResource.find_by_title params[:parent_resource_id]
+      return access_denied unless @parent_resource
+    end
+    
+    def load_widgets
+      @widget = Widget.find_by_id params[:id]
+    end
+  end
+</code></pre>
+
+With ResourcefulLoader, that becomes
+
+<pre><code>
+  class WidgetsController < ApplicationController
+    load_resource :parent_resource,  :method => :find_by_title, :if_nil => :access_denied
+    load_resource :widget, :by => :id, :only => [:show, :destroy, :edit]
+    
+    #...
+    # use @parent_resource and @widget in here
+    #...
+  end
+</code></pre>
+
+h2. Settings
+
+<pre><code>#config/initializers/resourceful_loader.rb
+ResourcefulLoader.default_finder = :find_by_divining
+
+
+#in some controller...
+  load_resource :widget
+  
+#expands to:
+  before_filter :load_widget
+  
+  private
+  def load_widget
+    @widget = Widget.find_by_divining params[:widget_id]
+  end
+
+</code></pre>
+
+h2. @#load_resource@ Options
+
+h3. @:by@
+
+The parameter that identifies your record.  @:by => :id@ would @find_by_id(params[:id])@.
+
+This defaults to @"#{the underscored name of your class}_id"@.  Specify @:by => :id@ for a primary resource.
+
+h3. @:method@
+
+The method by which you'd like to find your record.  @:method => :find_by_title@.
+
+This defaults to @ResourcefulLoader.default_finder@, which can be set in an initializer.  By default, this is @:find_by_id@.
+
+ResourcefulLoader plays nicely with "UrlParam":http://github.com/jbr/url_param, which changes the default finder to @:find_by_param@, allowing you to specify the finder on the model.
+
+h3. With a block
+
+Instead of providing a @:method@, you can provide a block to use as a finder.
+
+<pre><code>
+  #in some controller
+  load_resource :widget do |param|
+    if the_weather_is_good?
+      Widget.find_by_good_weather param
+    else
+      Widget.find_by_other_weather param
+    end
+  end
+</code></pre>
+
+h3. @:if_nil@
+
+If we can't find a record, this happens.  @:if_nil@ can be a symbol that represents a method on the controller, as in @:if_nil => :access_denied@ or a proc that receives the controller.
+@:if_nil@ only halts the filter chain if it returns false.  *Important:* Currently, this is only called if the @:by@ param is not nil and the record cannot be found.
+
+
+h2. Sometimes-nested controllers
+
+ResourcefulLoader allows you to have controllers that serve double-duty fairly easily.  For an example:
+
+<pre><code>
+  #config/routes.rb
+  #...
+    map.resources :one_parent_resource do |pr|
+      pr.resources :widgets
+    end
+
+    map.resources :another_parent_resource do |pr|
+      pr.resources :widgets
+    end
+
+    map.resources :widgets
+
+  #app/controllers/widgets_controller.rb
+  class WidgetsController < ApplicationController
+    load_resource :one_parent_resource
+    load_resource :another_parent_resource
+    
+    load_resource :widget, :by => :id
+    
+    def index
+      resource = @one_parent_resource || @another_parent_resource
+      @widgets = @parent_resource ? @parent_resource.widgets : Widget.all
+    end
+  end
+</code></pre>
+
+This incurs no lookup cost for the irrelevant routes.  ResourcefulLoader will not look in the database if the param is nil, allowing you to provide several alternative.
+
+h2. Generator
+
+ResourcefulLoader also provides a generator that uses this pattern and also generates some views.  If you'd like to use the generator but don't want the views, let me know.

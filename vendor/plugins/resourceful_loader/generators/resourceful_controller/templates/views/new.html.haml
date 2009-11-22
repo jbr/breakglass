@@ -1,0 +1,3 @@
+- form_for @<%=file_name.singularize%> do |f|
+  = render :partial => '<%=file_name%>/form', :locals => {:f => f}
+  = f.submit 'Create'

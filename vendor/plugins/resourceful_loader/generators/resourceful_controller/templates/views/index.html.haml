@@ -1,0 +1,4 @@
+%ol
+  - for <%=file_name.singularize%> in @<%=file_name%>
+    %li= link_to <%=file_name.singularize%>.to_s, <%=file_name.singularize%>_url(<%=file_name.singularize%>)
+=link_to 'New <%=file_name.singularize%>', new_<%=file_name.singularize%>_url
