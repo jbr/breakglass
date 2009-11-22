@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
   
   def current_person=(person)
+    @current_person = nil
     session[:person_id] = person.try :id
   end
   

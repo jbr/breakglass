@@ -34,7 +34,7 @@ class SessionsControllerTest < ActionController::TestCase
     
     context 'with a valid person phone and family password' do
       setup do
-        get :create, :session => { :phone => @person.phone, :password => 'pass' }
+        post :create, :session => { :phone => @person.phone, :password => 'pass' }
       end
       
       should 'set the current_person' do
@@ -48,7 +48,7 @@ class SessionsControllerTest < ActionController::TestCase
     
     context 'without a valid person phone and family password pair' do
       setup do
-        get :create, :session => { :phone => @person.phone, :password => 'something else' }
+        post :create, :session => { :phone => @person.phone, :password => 'something else' }
       end
       
       should 'not set the current_person' do
@@ -57,6 +57,30 @@ class SessionsControllerTest < ActionController::TestCase
       
       should 'render the log in form' do
         assert_css "form[action='#{session_url}']"
+      end
+    end
+  end
+  
+  context 'destroy (log out)' do
+    context 'when not logged in' do
+      setup {post :destroy}
+      should 'redirect to log in' do
+        assert_redirected_to new_session_url
+      end
+    end
+    
+    context 'when logged in' do
+      setup do
+        log_in_as people(:cameron)
+        post :destroy
+      end
+      
+      should 'set current person to nil' do
+        assert_current_person nil, controller
+      end
+      
+      should 'redirect to the log in url' do
+        assert_redirected_to new_session_url
       end
     end
   end
