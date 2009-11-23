@@ -16,7 +16,7 @@ class MessagesControllerTest < ActionController::TestCase
     
     context 'when logged in' do
       setup do
-        log_in_as :jacob
+        @person = log_in_as :jacob
         flexmock(Message).new_instances.should_receive(:broadcast).once
         post_create
       end
@@ -27,6 +27,10 @@ class MessagesControllerTest < ActionController::TestCase
       
       should 'save a message' do
         assert_text @message_text, Message.last
+      end
+      
+      should 'redirect to the family url' do
+        assert_redirected_to family_url(@person.family)
       end
     end
   end
