@@ -1,1 +1,3 @@
-$('#<%=@mp.element_id%>').replaceWith(<%= render(:partial => 'meeting_places/meeting_place', :locals => {:meeting_place => @mp}).to_json%>)
+$('#<%=@meeting_place.element_id%>').replaceWith(
+  <%= render_object_partial @meeting_place, :to => :json%>
+);

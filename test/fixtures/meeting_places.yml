@@ -1,13 +1,11 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  family_id: 1
+seattle_center:
+  family: ferroni
   position: 1
-  name: MyString
-  text: MyText
+  name: Seattle Center
+  text: Meet by the fountain at the Seattle Center.  Nobody else will think of that.
 
-two:
-  family_id: 1
+san_pablo_park:
+  family: rothstein
   position: 1
-  name: MyString
-  text: MyText
+  name: San Pablo Park
+  text: Meet here if home is inaccessible.
