@@ -1,3 +1,5 @@
+bundle_path "vendor/bundler_gems"
+
 gem "twilio"
 gem "clickatell"
 

@@ -1,1 +1,1 @@
-require "#{RAILS_ROOT}/vendor/gems/environment"
+require "#{RAILS_ROOT}/vendor/bundler_gems/environment"

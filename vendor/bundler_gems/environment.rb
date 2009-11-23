@@ -12,12 +12,12 @@ module Bundler
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/flexmock-0.8.6/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/crack-0.1.4/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/crack-0.1.4/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/clickatell-0.7.0/bin")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/clickatell-0.7.0/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/test-rig-0.0.0/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/test-rig-0.0.0/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/shoulda-2.10.2/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/shoulda-2.10.2/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/clickatell-0.7.0/bin")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/clickatell-0.7.0/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/httparty-0.4.5/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/httparty-0.4.5/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/twilio-2.4.1/bin")
@@ -34,12 +34,12 @@ module Bundler
   @bundled_specs["flexmock"].loaded_from = "#{dir}/specifications/flexmock-0.8.6.gemspec"
   @bundled_specs["crack"] = eval(File.read("#{dir}/specifications/crack-0.1.4.gemspec"))
   @bundled_specs["crack"].loaded_from = "#{dir}/specifications/crack-0.1.4.gemspec"
+  @bundled_specs["clickatell"] = eval(File.read("#{dir}/specifications/clickatell-0.7.0.gemspec"))
+  @bundled_specs["clickatell"].loaded_from = "#{dir}/specifications/clickatell-0.7.0.gemspec"
   @bundled_specs["test-rig"] = eval(File.read("#{dir}/specifications/test-rig-0.0.0.gemspec"))
   @bundled_specs["test-rig"].loaded_from = "#{dir}/specifications/test-rig-0.0.0.gemspec"
   @bundled_specs["shoulda"] = eval(File.read("#{dir}/specifications/shoulda-2.10.2.gemspec"))
   @bundled_specs["shoulda"].loaded_from = "#{dir}/specifications/shoulda-2.10.2.gemspec"
-  @bundled_specs["clickatell"] = eval(File.read("#{dir}/specifications/clickatell-0.7.0.gemspec"))
-  @bundled_specs["clickatell"].loaded_from = "#{dir}/specifications/clickatell-0.7.0.gemspec"
   @bundled_specs["httparty"] = eval(File.read("#{dir}/specifications/httparty-0.4.5.gemspec"))
   @bundled_specs["httparty"].loaded_from = "#{dir}/specifications/httparty-0.4.5.gemspec"
   @bundled_specs["twilio"] = eval(File.read("#{dir}/specifications/twilio-2.4.1.gemspec"))
