@@ -1,7 +1,0 @@
-<TwilioResponse>  
-	<ValidationRequest> 
-		<AccountSid>mysid</AccountSid>
-		<PhoneNumber>4158675309</PhoneNumber> 
-		<ValidationCode>123456</ValidationCode>
-	</ValidationRequest> 
-</TwilioResponse>
