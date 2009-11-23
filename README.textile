@@ -1,6 +1,6 @@
 h1. Break Glass
 
-Project for "RHOK":http://www.rhok.org/
+Project for "RHoK":http://www.rhok.org/
 
 h2. CI
 
