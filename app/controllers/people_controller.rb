@@ -5,8 +5,8 @@ class PeopleController < ApplicationController
     @person = current_family.people.build params[:person]
     @success = @person.save
     respond_to do |format|
-      format.js
       format.html { redirect_to current_family_url }
+      format.js
     end
   end
 end

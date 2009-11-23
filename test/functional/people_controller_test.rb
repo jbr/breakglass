@@ -13,6 +13,10 @@ class PeopleControllerTest < ActionController::TestCase
         assert_name @new_person_params[:name], @new_person
         assert_family @current_person.family, @new_person
       end
+      
+      should 'redirect to the current family' do
+        assert_redirected_to family_url(@current_person.family)
+      end
     end
     
     context 'when not logged in' do
