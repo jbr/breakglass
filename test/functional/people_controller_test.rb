@@ -28,6 +28,8 @@ class PeopleControllerTest < ActionController::TestCase
     end
   end
   
+  private
+  
   def post_create_for_family(family)
     family = families family if family.is_a? Symbol
     @new_person_params = {:name => "Elizabeth", :phone => "800-121-0000"}
