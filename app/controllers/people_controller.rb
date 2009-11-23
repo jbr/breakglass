@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
     @success = @person.save
     respond_to do |format|
       format.js
-      format.html{redirect_to '/'}
+      format.html { redirect_to current_family_url }
     end
   end
 end

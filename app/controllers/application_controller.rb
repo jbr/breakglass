@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
-  helper_method :logged_in?, :current_person, :current_family
+  helper_method :logged_in?, :current_person, :current_family, :current_family_url
 
   has_mobile_fu
 
@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   
   def current_family
     current_person && current_person.family
+  end
+  
+  def current_family_url
+    family_url current_family
   end
   
   def current_person
