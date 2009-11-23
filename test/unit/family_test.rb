@@ -26,6 +26,20 @@ class FamilyTest < ActiveSupport::TestCase
       context 'after save' do
         setup { @family.save! }
         
+        should 'create three meeting places' do
+          assert_count 3, @family.meeting_places
+        end
+
+        should 'hardcode the names' do
+          expected_names = [
+            'Neighborhood Meeting Place',
+            'Regional Meeting Place',
+            'Evacuation Location'
+          ]
+          
+          assert_equal expected_names, @family.meeting_places.map(&:name)
+        end
+        
         should 'populate crypted password' do
           assert_not_nil @family.crypted_password
         end
