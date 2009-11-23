@@ -36,7 +36,8 @@ class ApplicationController < ActionController::Base
   end
   
   def access_denied
-    redirect_to new_session_url and return false
+    redirect_to new_session_url
+    return false
   end
   
   private
