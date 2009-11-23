@@ -2,6 +2,14 @@ h1. Break Glass
 
 Project for "RHoK":http://www.rhok.org/
 
-h2. CI
+h2. Bundler
 
-See "runcoderun":http://runcoderun.com/jbr/breakglass for test status.
+Gems are managed with "bundler":http://github.com/wycats/bundler.
+
+If you don't have bundler, @sudo gem install bundler@.
+
+To sure you're up to date with breakglass gems, @gem bundle@.
+
+h2. Continuous Integration
+
+See "runcoderun":http://runcoderun.com/jbr/breakglass for test status.  Try installing "rcr-notify":http://github.com/jbr/rcr-notify to get growl notifications of build status.
