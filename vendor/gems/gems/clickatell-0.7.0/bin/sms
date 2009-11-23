@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+local_libs = [
+ File.join(File.dirname(__FILE__), *%w[../lib/clickatell]),
+ File.join(File.dirname(__FILE__), *%w[../lib/clickatell/utility]) 
+]
+
+if File.exist?(local_libs.first)
+  local_libs.each { |lib| require lib }
+else
+  require 'rubygems'
+  require 'clickatell'
+  require 'clickatell/utility'
+end
+
+# parse command line options
+options = Clickatell::Utility::Options.parse(ARGV)
+
+# authenticate and load the API
+api = Clickatell::API.authenticate(options.api_key, options.username, options.password)
+
+begin
+  if options.show_balance
+    puts "Retrieving account balance..."
+    puts "You have #{api.account_balance} credits remaining."
+    exit 0
+  elsif options.show_status
+    puts "Getting status of message ##{options.message_id}."
+    status = api.message_status(options.message_id)
+    puts "Status: #{Clickatell::API::MessageStatus[status]} (##{status})."
+    exit 0
+  else
+    puts "Sending '#{options.message}' to #{[options.recipient].flatten.join(", ")}..."
+    additional_opts = {}
+    additional_opts[:from] = options.from if options.from
+    msg_id = api.send_message(options.recipient, options.message, additional_opts)
+    puts "Message sent successfully (message id: #{[msg_id].flatten.join(", ")})."
+    exit 0
+  end
+  
+rescue Clickatell::API::Error => e
+  case e.code
+  when '001', '002', '003', '005', '108'
+    puts "Authentication failed. Please check your username, password and API key and try again."
+    exit 1
+  when '004'
+    puts "Your account has been frozen. Please contact Clickatell support."
+    exit 1
+  when '007'
+    puts "Requests for this API key are not permitted from this IP address."
+    exit 1
+  else
+    puts "Unexpected error occurred. #{e.message} (error code: #{e.code})."
+    puts "Please contact the author (contact@lukeredpath.co.uk) with the above error."
+    exit 1
+  end
+  
+rescue Timeout::Error
+  puts "The connection the the Clickatell service timed out"
+  puts "Please check your network settings and try again."
+  exit 1
+end
