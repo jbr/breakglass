@@ -3,8 +3,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_person.messages.build params[:message]
-    @success = @message.save
-    redirect_to current_person.family
+    
+    if @success = @message.save
+      flash[:notice] = "Message sent!"
+    else
+      flash[:error] = "Message not sent."
+    end
+    
+    redirect_to current_family
   end
 
 end
