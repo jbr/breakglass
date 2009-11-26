@@ -1,21 +1,18 @@
 class Family < ActiveRecord::Base
-
   require 'digest/sha1'
-
+  
   extend Phone::Methods
   phone_like_field :external_contact_phone
-
+  
   attr_accessor :password
   validates_confirmation_of :password
   validates_presence_of :password, :if => :password_required?
+  validates_length_of       :password, :within => 4..40, :if => :password_required?
+  validates_presence_of :name
+
   before_save :encrypt_password, :if => :password_required?
   after_create :create_meeting_places
-  
-  validates_presence_of     :password,                   :if => :password_required?
-  validates_length_of       :password, :within => 4..40, :if => :password_required?
-  
-  validates_presence_of :name
-	
+
   has_many :people
   has_many :meeting_places
   
@@ -24,10 +21,7 @@ class Family < ActiveRecord::Base
     self.crypted_password = encrypt password.downcase
   end
   
-  def encrypt(password)
-    Digest::SHA1.hexdigest("--#{salt}--#{password.downcase}--")
-  end
-  
+
   def authenticated?(password)
     crypted_password == encrypt(password.downcase)
   end
@@ -35,12 +29,17 @@ class Family < ActiveRecord::Base
   def password_required?
     crypted_password.blank? || !password.blank?
   end
-
+  
   def create_meeting_places
-    meeting_place_names = ['Neighborhood Meeting Place', 'Regional Meeting Place', 'Evacuation Location']
-    meeting_place_names.each do |mp_name|
-      mp = self.meeting_places.new(:name => mp_name)
-      mp.save
+    MeetingPlace::DEFAULTS.each do |mp_name|
+      meeting_places.create! :name => mp_name
     end
   end
+  
+  private
+  
+  def encrypt(password)
+    Digest::SHA1.hexdigest("--#{salt}--#{password.downcase}--")
+  end
+  
 end

@@ -10,6 +10,20 @@ class FamilyTest < ActiveSupport::TestCase
       assert_not_nil @family.errors.on(:name)
     end
     
+    context 'with a too-short password' do
+      setup do
+        @family.attributes = {
+          :password => 'p',
+          :password_confirmation => 'p'
+        }
+      end
+      
+      should 'complain about the password' do
+        assert_not_valid @family
+        assert_not_nil @family.errors.on(:password)
+      end
+    end
+    
     context 'with a valid unsaved record' do
       setup do
         @family.attributes = {
@@ -54,6 +68,10 @@ class FamilyTest < ActiveSupport::TestCase
         
         should 'not authenticate against the incorrect password' do
           assert ! @family.authenticated?("not my password")
+        end
+        
+        should 'still be valid after reload' do
+          assert_valid Family.find(@family.id)
         end
       end
     end
