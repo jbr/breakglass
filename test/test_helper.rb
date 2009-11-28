@@ -32,3 +32,5 @@ class ActionController::TestCase
     assert_size count, response_body.css(css)
   end
 end
+
+Dir[File.instance_eval{expand_path(join(dirname(__FILE__), 'helpers', '*'))}].each {|f| require f}

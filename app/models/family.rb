@@ -19,7 +19,6 @@ class Family < ActiveRecord::Base
     self.crypted_password = encrypt password.downcase
   end
   
-
   def authenticated?(password)
     crypted_password == encrypt(password.downcase)
   end

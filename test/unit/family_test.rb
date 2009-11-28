@@ -36,6 +36,8 @@ class FamilyTest < ActiveSupport::TestCase
       should 'be valid' do
         assert_valid @family
       end
+      
+      should_have_phone_like_field :external_contact_phone
 
       context 'after save' do
         setup { @family.save! }

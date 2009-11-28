@@ -2,14 +2,14 @@ cameron:
   family: ferroni
   name: MyString
   phone: 1234567890
-  sms: MyString
+  sms: 1212459090
   email: MyString
 
 lara:
   family: ferroni
   name: MyString
   phone: 0987654321
-  sms: MyString
+  sms: 0121239999
   email: MyString
 
 jacob:

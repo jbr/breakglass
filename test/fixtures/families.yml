@@ -2,8 +2,10 @@ ferroni:
   name: Ferroni
   salt: pass
   crypted_password: MyString
+  external_contact_phone: "0001213333"
 
 rothstein:
   name: Rothstein
   salt: pass
   crypted_password: <%=Digest::SHA1.hexdigest("--pass--pass--")%>
+  external_contact_phone: "0001214444"

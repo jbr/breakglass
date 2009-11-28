@@ -55,6 +55,9 @@ class PersonTest < ActiveSupport::TestCase
         assert_valid @person
       end
       
+      should_have_phone_like_field :sms
+      # should_have_phone_like_field :phone
+      
       context 'with a duplicate phone' do
         setup {@person.phone = people(:cameron).phone}
         should 'not be valid' do
