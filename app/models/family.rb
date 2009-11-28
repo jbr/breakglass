@@ -1,14 +1,12 @@
 class Family < ActiveRecord::Base
   require 'digest/sha1'
   
-  extend Phone::Methods
-  phone_like_field :external_contact_phone
-  
   attr_accessor :password
   validates_confirmation_of :password
   validates_presence_of :password, :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   validates_presence_of :name
+  phone_like_field :external_contact_phone
 
   before_save :encrypt_password, :if => :password_required?
   after_create :create_meeting_places

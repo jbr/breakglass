@@ -1,5 +1,4 @@
 class Person < ActiveRecord::Base
-  extend Phone::Methods
   belongs_to :family
   has_many :messages
 
