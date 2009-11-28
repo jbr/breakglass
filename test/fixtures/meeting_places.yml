@@ -3,9 +3,11 @@ seattle_center:
   position: 1
   name: Seattle Center
   text: Meet by the fountain at the Seattle Center.  Nobody else will think of that.
+  phone: 0123456789
 
 san_pablo_park:
   family: rothstein
   position: 1
   name: San Pablo Park
   text: Meet here if home is inaccessible.
+  phone: 0000000000
