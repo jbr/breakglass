@@ -12,6 +12,11 @@ lara:
   sms: 0121239999
   email: MyString
 
+another_ferroni:
+  family: ferroni
+  name: another
+  phone: 0008885555
+  
 jacob:
   family: rothstein
   name: Jacob
