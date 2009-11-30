@@ -36,7 +36,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
   
   def post_create
-    @message_text = "hello world"
+    @message_text = "my urgent message"
     post :create, :message => { :text => @message_text }
   end
 end

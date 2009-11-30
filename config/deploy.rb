@@ -15,3 +15,12 @@ role :web, "breakglass.emicus.com"
 role :db,  "breakglass.emicus.com", :primary => true
 
 default_run_options[:pty] = true
+
+after 'deploy:symlink', 'deploy:copy_config_files'
+
+namespace :deploy do
+  task :copy_config_files do
+    run "cp #{shared_path}/config/* #{current_path}/config"
+  end
+end
+

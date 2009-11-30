@@ -3,7 +3,7 @@ require 'test_helper'
 class MessageTest < ActiveSupport::TestCase
   context 'message handler classes' do
     should 'register two handlers (hardcoded for now)' do
-      assert_equal Set.new([Sms, Voice]), Message.handler_classes
+      assert_equal Set.new([SmsHandler, VoiceHandler]), Message.handler_classes
     end
   end
   

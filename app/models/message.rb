@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :person
 	after_create :broadcast
 
-  @@handler_classes = Set.new << Sms << Voice
+  @@handler_classes = Set.new << SmsHandler << VoiceHandler
 
 	private
 	

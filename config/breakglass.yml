@@ -1,0 +1,10 @@
+voice:
+  caller_id: 2063358014
+  account_sid: AC22b634ba0e4e36e926222a3ae89a72ea
+  auth_token: 82b27d73fa88a8dd599a12172e8c0bd3
+  callback: http://breakglass.emicus.com/twilio?msg=%m
+sms:
+  api_id: 3205392
+  username: breakglass
+  password: rhok2009
+  
