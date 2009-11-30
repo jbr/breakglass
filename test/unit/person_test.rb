@@ -1,6 +1,14 @@
 require 'test_helper'
 
 class PersonTest < ActiveSupport::TestCase
+  context 'family_members' do
+    setup {@person = people :cameron}
+    
+    should 'include the other person in the family' do
+      assert_family_members @person.family.people - [@person], @person
+    end
+  end
+  
   context 'authentication' do
     context 'with a person that exists' do
       setup {assert_not_nil @expected_person = Person.find_by_phone("1234567890")}

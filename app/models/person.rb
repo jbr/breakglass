@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
   belongs_to :family
+  has_many :family_members, :source => :people, :through => :family, :conditions => 'people.id <> #{id}'
   has_many :messages
 
   validates_presence_of :family
