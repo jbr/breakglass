@@ -64,7 +64,7 @@ class PersonTest < ActiveSupport::TestCase
       end
       
       should_have_phone_like_field :sms
-      # should_have_phone_like_field :phone
+      should_have_phone_like_field :phone
       
       context 'with a duplicate phone' do
         setup {@person.phone = people(:cameron).phone}
