@@ -56,6 +56,22 @@ class FamilyTest < ActiveSupport::TestCase
           assert_equal expected_names, @family.meeting_places.map(&:name)
         end
         
+        
+        context 'with people' do
+          setup {@family.people.create! :name => 'joe', :phone => '050 505 0055'}
+          
+          context 'after destroy' do
+            setup {@family.destroy}
+            should 'destroy the meeting places as well' do
+              assert_empty MeetingPlace.find_all_by_family_id(@family.id)
+            end
+            
+            should 'destroy the person as well' do
+              assert_empty Person.find_all_by_family_id(@family.id)
+            end
+          end
+        end
+        
         should 'populate crypted password' do
           assert_not_nil @family.crypted_password
         end
