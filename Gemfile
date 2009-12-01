@@ -1,6 +1,6 @@
 bundle_path "vendor/bundler_gems"
 
-gem "twilio"
+gem "twilio", '2.5.0'
 gem "clickatell"
 
 only :test do
