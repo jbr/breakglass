@@ -13,3 +13,7 @@ To sure you're up to date with breakglass gems, @gem bundle@.
 h2. Continuous Integration
 
 See "runcoderun":http://runcoderun.com/jbr/breakglass for test status.  Try installing "rcr-notify":http://github.com/jbr/rcr-notify to get growl notifications of build status.
+
+h2. Metrics
+
+See "Devver Caliper":http://devver.net/caliper/project?repo=git://github.com/jbr/breakglass.git for various Ruby code metrics, like code smell, LOC, duplication, etc.
