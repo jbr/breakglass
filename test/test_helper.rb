@@ -8,10 +8,6 @@ class ActiveSupport::TestCase
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
   fixtures :all
-  
-  def assert_not(*args)
-    assert !args.shift, *args
-  end
 end
 
 
