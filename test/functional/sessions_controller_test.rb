@@ -26,7 +26,7 @@ class SessionsControllerTest < ActionController::TestCase
       
       context 'mobile' do
         setup do
-          controller.class.has_mobile_fu true
+          request.session[:mobile_view] = true
           get :new
         end
         

@@ -2,14 +2,10 @@ class SessionsController < ApplicationController
   before_filter :login_required, :only => :destroy
   
   def new
-    respond_to do |format|
-      format.any do
-        if logged_in?
-          redirect_to root_url
-    		else
-          render :template => 'sessions/new.html'
-        end
-      end
+    if logged_in?
+      redirect_to root_url
+		else
+      render :template => 'sessions/new.html'
     end
   end
 
