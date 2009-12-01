@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
   validates_presence_of :family
 	validates_presence_of :phone
 	
-  phone_like_fields :sms, :phone
+  phone_fields :sms, :phone
   
   def self.authenticate(phone, password)
     person = find_by_phone strip_nonnumeric(phone)

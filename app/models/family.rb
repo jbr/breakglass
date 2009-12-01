@@ -6,7 +6,7 @@ class Family < ActiveRecord::Base
   validates_presence_of :password, :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   validates_presence_of :name
-  phone_like_field :external_contact_phone
+  phone_field :external_contact_phone
 
   before_save :encrypt_password, :if => :password_required?
   after_create :create_meeting_places
