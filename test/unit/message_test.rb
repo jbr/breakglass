@@ -19,7 +19,12 @@ class MessageTest < ActiveSupport::TestCase
     
     should 'call contact once for each family member' do
       Message.handler_classes.each do |handler_class|
-        flexmock(handler_class).new_instances.should_receive(:contact).times @message.person.family_members.size
+        handler = flexmock do |handler|
+          handler.should_receive(:contact).and_return(nil).
+            times @message.person.family_members.size
+        end
+
+        flexmock(handler_class).should_receive(:new).once.and_return handler
       end
     end
   end
