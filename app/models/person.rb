@@ -5,8 +5,8 @@ class Person < ActiveRecord::Base
   has_many :messages
 
   validates_presence_of :family
-	validates_presence_of :phone
-	
+  validates_presence_of :phone
+  
   phone_fields :sms, :phone
   
   def self.authenticate(phone, password)
@@ -17,5 +17,4 @@ class Person < ActiveRecord::Base
       nil
     end
   end
-
 end

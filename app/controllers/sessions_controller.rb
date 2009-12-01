@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def new
     if logged_in?
       redirect_to root_url
-		else
+    else
       render :template => 'sessions/new.html'
     end
   end
