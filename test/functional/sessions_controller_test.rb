@@ -23,6 +23,17 @@ class SessionsControllerTest < ActionController::TestCase
       should 'display a log in button' do
         assert_css 'input[type=submit][value="Log In"]'
       end
+      
+      context 'mobile' do
+        setup do
+          controller.class.has_mobile_fu true
+          get :new
+        end
+        
+        should 'display the log in form' do
+          assert_css 'form'
+        end
+      end
     end
   end
   
