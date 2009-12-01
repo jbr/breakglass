@@ -3,13 +3,29 @@ require 'test_helper'
 class FamiliesControllerTest < ActionController::TestCase
   context 'index' do
     context 'when logged in' do
-      setup do
-        @person = log_in_as :cameron
-        get :index
-      end
+      setup { @person = log_in_as :cameron }
       
-      should 'render the show action for the current family' do
-        assert_showing_family @person.family
+      context 'normal browser view' do
+        setup { get :index }
+
+        should 'render the show action for the current family' do
+          assert_showing_family @person.family
+        end
+      end
+
+      context 'mobile view' do
+        setup do
+          request.session[:mobile_view] = true
+          get :index
+        end
+      
+        should 'say who is logged in' do
+          assert_match /Logged in as #{@person.name}/, response.body
+        end
+      
+        should 'show the log out link' do
+          assert_css '#log-out'
+        end
       end
     end
     

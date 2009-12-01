@@ -8,17 +8,7 @@
     <script src="<%=root_url%>javascripts/application.js" type="text/javascript"></script>
   </head>
   <body>
-    <% if flash[:notice] -%><div class="flash notice"><%= flash[:notice] %></div><% end -%>
-    <% if flash[:error] -%><div class="flash error"><%= flash[:error] %></div><% end -%>
-
-    <div class="header">
-      <% if logged_in? -%>
-        <div>
-          Logged in as <%=current_person.name%> |
-          <%= link_to "log out", session_url, :method => :delete -%>
-        </div>
-      <% end -%>
-    </div>
+		<%= render :partial => 'layouts/shared'%>
     <%= yield %>
   </body>
 </html>
