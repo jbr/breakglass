@@ -16,6 +16,6 @@ class VoiceHandler
   end
   
   def callback
-    callback = settings["callback"].gsub "%m", CGI.escape(message.text)
+    settings["callback"].gsub "%m", CGI.escape(message.text)
   end
 end
