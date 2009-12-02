@@ -2,6 +2,8 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
+TestRig::SmarterMessage.backtrace_regex = /_test(?:_helper)?\.rb/
+
 class ActiveSupport::TestCase
   include TestRig
 

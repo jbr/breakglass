@@ -52,6 +52,19 @@ module PhoneLikeFieldTestHelper
           end
         end
         
+        context "with another record that has a blank #{field_name}" do
+          setup do
+            @other_record = class_name.constantize.first(:conditions => "#{field_name} IS NOT NULL")
+            assert_valid @other_record
+            @blank_field_valid = @other_record.update_attributes field_name => ''
+            object.send "#{field_name}=", @other_record.send(field_name)
+          end
+              
+          should "have errors on #{field_name} if the other record was valid" do
+            assert_equal @blank_field_valid, object.valid?
+          end
+        end
+        
         context "when the #{field_name} is blank" do
           setup { object.send "#{field_name}=", nil }
           should "have a blank formatted accessor" do
