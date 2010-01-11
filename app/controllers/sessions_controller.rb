@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if logged_in?
       redirect_to root_url
     else
-      render :template => 'sessions/new.html'
+      render :template => 'sessions/new.html', :format => 'html'
     end
   end
 
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash[:error] = "Could not log in"
-      render :action => 'new'
+      render :template => 'sessions/new.html'
     end
   end
 
