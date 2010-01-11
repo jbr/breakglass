@@ -1,0 +1,8 @@
+.box#family-members
+  Please enter your family members' contact information here. During an
+  emergency you will be able to send them messages (and they to you) based on
+  the information you provide.
+  #people
+    - for person in family.people do
+      = render :partial => 'people/person', :locals => {:person => person}
+  = render :partial => 'people/form'

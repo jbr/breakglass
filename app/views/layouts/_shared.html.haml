@@ -1,0 +1,11 @@
+- if flash[:notice]
+  .flash.notice= flash[:notice]
+
+- if flash[:error]
+  .flash.error= flash[:error]
+
+.header
+  - if logged_in?
+    %div
+      == Logged in as #{current_person.name} |
+      = link_to "log out", session_url, :method => :delete, :id => 'log-out'

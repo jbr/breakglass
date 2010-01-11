@@ -1,0 +1,14 @@
+.meeting-place{:id => meeting_place.element_id}
+  .name= meeting_place.name
+  .static
+    .text= meeting_place.text
+    - unless meeting_place.phone.blank?
+      .phone= meeting_place.formatted_phone
+    Click to edit
+  
+  - remote_form_for meeting_place, :url => meeting_place_url(meeting_place), :html => {:class => 'meeting-place-form', :style => "display:none"} do |f|
+    = f.text_area 'text'
+    .phone
+      Phone:
+      = f.text_field 'phone', :text => meeting_place.formatted_phone
+    = f.submit "Update"

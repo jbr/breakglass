@@ -1,0 +1,7 @@
+- form_for @family do |f|
+  #external-contact-name
+    - field_set_tag "Contact Name/Phone" do
+      = default_value_text_field f, :external_contact_name, "Aunt Ida"
+      = default_value_text_field f, :external_contact_phone, "###-###-####"
+  = f.submit
+  .clear

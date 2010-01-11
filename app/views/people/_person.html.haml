@@ -1,0 +1,7 @@
+.person
+  .name= person.name
+  .phone= person.formatted_phone
+  - unless person.sms.blank?
+    .sms= person.formatted_sms
+  - unless person.email.blank?
+    .email= person.email

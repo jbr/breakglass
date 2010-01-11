@@ -1,0 +1,11 @@
+%html{:manifest => logged_in? ? "/manifest" : ''}
+  %head
+    %title Break Glass
+    %link{:href => "#{root_url}stylesheets/breakglass.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    = javascript_include_tag "#{root_url}javascripts/jquery.js"
+    = javascript_include_tag "#{root_url}javascripts/jquery-ui.js"
+    = javascript_include_tag "#{root_url}javascripts/jrails.js"
+    = javascript_include_tag "#{root_url}javascripts/application.js"
+  %body
+    = render :partial => 'layouts/shared'
+    = yield
