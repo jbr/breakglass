@@ -17,9 +17,10 @@
           %img{:src => "#{root_url}images/breakglass_icon.gif", :height => "32px", :width => "32px"}
         %div#header_title
           Break Glass
-        %div#header_welcome
-          == Welcome #{current_person.name} <br>
-          = link_to "log out", session_url, :method => :delete, :id => 'log-out'
+        - if logged_in?
+          %div#header_welcome
+            == Welcome #{current_person.name} <br>
+            = link_to "log out", session_url, :method => :delete, :id => 'log-out'
         .clear
       = render :partial => 'layouts/shared'
       = yield
