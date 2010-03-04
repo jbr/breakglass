@@ -22,6 +22,7 @@ class FamiliesController < ApplicationController
       if @success
         format.html { redirect_to(@family) }
         format.json { head :ok }
+        format.js { render :template => '/emergency_contact/update.js.erb' }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @record.errors.to_json, :status => :unprocessable_entity }
@@ -31,6 +32,8 @@ class FamiliesController < ApplicationController
   
   private
   def family_must_be_current_family
+    pp @family
+    pp current_family
     unless @family == current_family
       redirect_to family_url(current_family)
       return false

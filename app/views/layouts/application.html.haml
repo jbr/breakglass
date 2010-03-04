@@ -1,11 +1,25 @@
-%html{:manifest => logged_in? ? "/manifest" : ''}
+-# %html{:manifest => logged_in? ? "/manifest" : ''}
+%html
   %head
     %title Break Glass
+    %link{:href => "#{root_url}stylesheets/yui_reset.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "#{root_url}stylesheets/yui_base.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "#{root_url}stylesheets/yui_fonts.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "#{root_url}stylesheets/breakglass.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
     = javascript_include_tag "#{root_url}javascripts/jquery.js"
     = javascript_include_tag "#{root_url}javascripts/jquery-ui.js"
     = javascript_include_tag "#{root_url}javascripts/jrails.js"
     = javascript_include_tag "#{root_url}javascripts/application.js"
   %body
-    = render :partial => 'layouts/shared'
-    = yield
+    .content
+      .header
+        %div#header_image
+          %img{:src => "#{root_url}images/breakglass_icon.gif", :height => "32px", :width => "32px"}
+        %div#header_title
+          Break Glass
+        %div#header_welcome
+          == Welcome #{current_person.name} <br>
+          = link_to "log out", session_url, :method => :delete, :id => 'log-out'
+        .clear
+      = render :partial => 'layouts/shared'
+      = yield

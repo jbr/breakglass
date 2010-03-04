@@ -1,8 +1,20 @@
-.box#family-members
-  Please enter your family members' contact information here. During an
-  emergency you will be able to send them messages (and they to you) based on
-  the information you provide.
-  #people
+.panel#family-members
+  %h4
+    Family Contact Information
+  During an emergency your family will be able to exchange messages based on the
+  information you provide.
+  .people#people
+    .name.label
+      Name
+    .phone.label
+      Phone
+    .sms.label
+      Text
+    .email.label
+      eMail
+    .clear
     - for person in family.people do
-      = render :partial => 'people/person', :locals => {:person => person}
-  = render :partial => 'people/form'
+      = render :partial => 'people/person', :locals => { :person => person }
+  .people-form
+    .people
+      = render :partial => 'people/form'

@@ -1,0 +1,18 @@
+.emg-contact#emergency-contact
+  .static
+    .name= @family.external_contact_name
+    .phone= @family.formatted_external_contact_phone
+    .clear
+    .edit-link
+      Click to edit
+    .clear
+  
+  - remote_form_for @family, :url => family_url(@family), :html => {:class => 'emg-contact-form', :style => "display:none"} do |f|
+    .name-in
+      = f.text_field :external_contact_name
+    .phone
+      Phone:
+      = f.text_field :external_contact_phone, :size => 10
+    .button
+      = f.submit "Update"
+    .clear

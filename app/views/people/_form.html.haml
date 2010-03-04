@@ -1,16 +1,15 @@
 - person ||= Person.new
 - remote_form_for :person, person, :url => family_people_url(current_family), :method => :post, :html => {:id => 'new-person'} do |f|
   = f.error_messages
-  .field.name
-    = f.label :name
-    = f.text_field :name
-  .field.phone
-    = f.label :phone
-    = f.text_field :phone
-  .field.sms
-    = f.label :sms
-    = f.text_field :sms
-  .field.email
-    = f.label :email
-    = f.text_field :email
-  .field.submit= f.submit 'Add'
+  .name
+    = f.text_field :name, :size => 26 
+  .phone
+    = f.text_field :phone, :size => 12
+  .sms
+    = f.text_field :sms, :size => 12
+  .email
+    = f.text_field :email, :size => 24
+  .clear
+  .button
+    = f.submit 'Add'
+  .clear
