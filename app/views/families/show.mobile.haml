@@ -9,13 +9,13 @@
     .info_block_text= family_meeting_place.text
     .info_block_phone= family_meeting_place.formatted_phone
 
-  .info_block#out_of_town_contact
-    .info_block_name Out-Of-Town Contact
-    .info_block_text= @family.external_contact_name
-    .info_block_phone= @family.formatted_external_contact_phone
+.info_block#out_of_town_contact
+  .info_block_name Out-Of-Town Contact
+  .info_block_text= @family.external_contact_name
+  .info_block_phone= @family.formatted_external_contact_phone
 
-  .submit_block#break_glass
-    - form_for :message, :url => messages_url, :method => :post do |f|
-      .submit_block
-        = f.text_field :text
-        = submit_tag 'Break Glass', :id => "submit_button"
+.submit_block#break_glass
+  - form_for :message, :url => messages_url, :method => :post do |f|
+    .submit_block
+      = f.text_field :text
+      = submit_tag 'Break Glass', :id => "submit_button"
