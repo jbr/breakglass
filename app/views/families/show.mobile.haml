@@ -17,5 +17,6 @@
 .submit_block#break_glass
   - form_for :message, :url => messages_url, :method => :post do |f|
     .submit_block
-      = f.text_field :text
+      = f.text_field :text, :size => 32
+      <br>
       = submit_tag 'Break Glass', :id => "submit_button"

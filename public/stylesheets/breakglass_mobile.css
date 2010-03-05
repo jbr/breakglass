@@ -4,6 +4,7 @@ body {
         *font-size:small;
         /* for IE Quirks Mode */
         *font:x-small;
+        background-color: #FFFFFF;
 }
 
 h1 {
@@ -21,7 +22,7 @@ h2 {
 
 .mobile_header {
   border: solid 2px;
-  width: 100%;
+  width: 291px;
   height: 56px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -41,7 +42,7 @@ h2 {
 }
 
 .info_block {
-  width: 100%
+  width: 287px;
   height: auto;
   margin-top: 4px;
   font-size: 123.1%;
